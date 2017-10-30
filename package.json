@@ -1,0 +1,58 @@
+{
+  "name": "connify-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "grunt",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "npm start"
+  },
+  "author": "Noam Bergauz",
+  "license": "ISC",
+  "dependencies": {
+    "@types/body-parser": "^1.16.7",
+    "@types/compression": "0.0.34",
+    "@types/cors": "^2.8.1",
+    "@types/express": "^4.0.39",
+    "@types/uuid": "^3.4.3",
+    "body-parser": "^1.18.2",
+    "compression": "^1.7.1",
+    "cookie-parser": "^1.4.3",
+    "core-js": "^2.5.1",
+    "easyrtc": "^1.1.0",
+    "express": "^4.16.2",
+    "lodash": "^4.17.4",
+    "path": "^0.12.7",
+    "socket.io": "^2.0.4",
+    "ts-helpers": "^1.1.2",
+    "uuid": "^3.1.0",
+    "zone.js": "^0.8.18"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.80",
+    "@types/node": "^8.0.47",
+    "codelyzer": "^3.2.2",
+    "concurrently": "^3.5.0",
+    "grunt": "^1.0.1",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-nodemon": "^0.5.4",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-open": "^0.2.3",
+    "grunt-ts": "^6.0.0-beta.17",
+    "grunt-typescript": "^0.8.0",
+    "nodemon": "^1.12.1",
+    "ts-loader": "^3.1.0",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.5.3",
+    "webdriver-manager": "^12.0.6"
+  },
+  "engines": {
+    "node": "8.2.1",
+    "npm": "5.4.2"
+  }
+}
