@@ -3,8 +3,10 @@ module.exports = function(grunt) {
     ts: {
       default : {
         src: ["src/**/*.ts", "!node_modules/**/*.ts", "!src/.baseDir.ts"],
-        rootDir: "./src/",
-        outDir: "./build"
+        outDir: "./build",
+        options: {
+          rootDir: "./src"
+        }
       }
     },
     copy: {

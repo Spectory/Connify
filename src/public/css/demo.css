@@ -1,0 +1,34 @@
+#demoContainer {
+  position: relative;
+}
+
+#connectControls {
+  float: left;
+  width: 250px;
+  text-align: center;
+  border: 2px solid black;
+  margin: 50px;
+}
+
+#otherClients {
+  height: 200px;
+  overflow-y: scroll;
+}
+
+#callerAudio {
+  /* display:none; */
+  height: 10em;
+  width: 10em;
+  margin-left: 10px;
+}
+
+#acceptCallBox {
+  display: none;
+  z-index: 2;
+  position: absolute;
+  top: 100px;
+  left: 400px;
+  border: red solid 2px;
+  background-color: pink;
+  padding: 15px;
+}
