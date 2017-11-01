@@ -43,6 +43,7 @@ function connect() {
     easyrtc.enableVideo(false);
     easyrtc.enableVideoReceive(false);
     easyrtc.setRoomOccupantListener(convertListToButtons);
+    easyrtc.joinRoom("Lobby", {}, console.log, console.error)
     easyrtc.initMediaSource(
         function(){        // success callback
             console.log("easyrtc.initMediaSource success");
