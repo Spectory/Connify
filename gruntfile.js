@@ -58,5 +58,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.registerTask("default", ["clean", "ts", 'concurrent:dev']);
-  grunt.registerTask("heroku:build", ["clean", "ts", "copy"])
+  grunt.registerTask("heroku:production", ["clean", "ts", "copy"])
 };
