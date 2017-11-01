@@ -6,6 +6,7 @@ import { AppRouter } from "./config/router";
 import * as socketIO from "socket.io";
 import { join } from "path";
 import * as fs from "fs";
+import * as sslHerokuRedirect from "heroku-ssl-redirect"
 const easyrtc = require("easyrtc");
 
 export default class AppServer {
@@ -23,6 +24,7 @@ export default class AppServer {
     
     this.app = express();
     this.app.use(express.static(join(__dirname, "public")));
+    this.app.use(sslHerokuRedirect());
     this.app.get("/", (request: Request, response: Response) => {
       response.sendFile(join(__dirname, "public/index.html"));
     })
