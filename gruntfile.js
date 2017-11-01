@@ -58,4 +58,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.registerTask("default", ["clean", "ts", 'concurrent:dev']);
+  grunt.registerTask("build", ["clean", "ts", "copy"])
 };
