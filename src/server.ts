@@ -1,9 +1,11 @@
-import { createServer, Server } from "http";
+// import { createServer, Server } from "http";
+import { createServer, Server } from "https";
 import * as express from "express";
 import { Request, Response } from "express";
 import { AppRouter } from "./config/router";
 import * as socketIO from "socket.io";
 import { join } from "path";
+import * as fs from "fs";
 const easyrtc = require("easyrtc");
 
 export default class AppServer {
@@ -12,14 +14,20 @@ export default class AppServer {
   private webServer: Server;
   private socketServer: any;
   private easyrtcServer: any; 
+  private privateKey: string;
+  private privateCrt: string;
+
   constructor() {
+    this.privateKey = fs.readFileSync(join(__dirname, "certs", "host.key")).toString();
+    this.privateCrt = fs.readFileSync(join(__dirname, "certs", "host.cert")).toString();
+    
     this.app = express();
     this.app.use(express.static(join(__dirname, "public")));
     this.app.get("/", (request: Request, response: Response) => {
       response.sendFile(join(__dirname, "public/index.html"));
     })
     this.app.use("/api", AppRouter);
-    this.webServer = createServer(this.app);
+    this.webServer = createServer({ key: this.privateKey, cert: this.privateCrt } , this.app);
     this.listen();
   }
   
