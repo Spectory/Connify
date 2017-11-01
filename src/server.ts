@@ -1,5 +1,5 @@
-// import { createServer, Server } from "http";
-import { createServer, Server } from "https";
+import * as http from "http";
+import * as https from "https";
 import * as express from "express";
 import { Request, Response } from "express";
 import { AppRouter } from "./config/router";
@@ -12,7 +12,7 @@ const easyrtc = require("easyrtc");
 export default class AppServer {
   private static readonly PORT: string|number = process.env.PORT || 3000;
   private app: express.Application;
-  private webServer: Server;
+  private webServer: any;
   private socketServer: any;
   private easyrtcServer: any; 
   private privateKey: string;
@@ -24,12 +24,16 @@ export default class AppServer {
     
     this.app = express();
     this.app.use(express.static(join(__dirname, "public")));
-    this.app.use(sslHerokuRedirect());
     this.app.get("/", (request: Request, response: Response) => {
       response.sendFile(join(__dirname, "public/index.html"));
     })
+    let options = {};
     this.app.use("/api", AppRouter);
-    this.webServer = createServer({ key: this.privateKey, cert: this.privateCrt } , this.app);
+    if (process.env.NODE_ENV === "production") {
+      this.webServer = http.createServer(this.app);
+    } else {
+      this.webServer = https.createServer({ key: this.privateKey, cert: this.privateCrt }, this.app);
+    }
     this.listen();
   }
   
