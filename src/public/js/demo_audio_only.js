@@ -38,7 +38,7 @@ function enable(domId) {
 
 
 function connect() {
-    console.log("connect");
+    console.log("connect",Date.now());
     console.log("Initializing.");
     easyrtc.enableVideo(false);
     easyrtc.enableVideoReceive(false);
