@@ -14,7 +14,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true, 
           cwd: "src",
-          src: ['public/**'], 
+          src: ['public/**', "certs/**"], 
           dest: 'build'},
         ]
       }
@@ -45,7 +45,8 @@ module.exports = function(grunt) {
     concurrent: {
       dev: {
         options: {
-          logConcurrentOutput: true
+          logConcurrentOutput: true,
+          host: "10.10.100.105"
         },
         tasks: ['copy', 'watch', 'nodemon:dev']
       }
@@ -58,4 +59,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.registerTask("default", ["clean", "ts", 'concurrent:dev']);
+  grunt.registerTask("heroku:production", ["clean", "ts", "copy"])
 };

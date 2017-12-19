@@ -102,7 +102,7 @@ function convertListToButtons (roomName, occupants, isPrimary) {
 
 function performCall(otherEasyrtcid) {
     console.log("performCall", otherEasyrtcid);
-    easyrtc.hangupAll();
+    // easyrtc.hangupAll();
     var acceptedCB = function(accepted, caller) {
         console.log("acceptedCB", accepted, caller);
     
@@ -164,27 +164,6 @@ easyrtc.setOnStreamClosed( function (easyrtcid) {
 
 
 easyrtc.setAcceptChecker(function(easyrtcid, callback) {
-    console.log("setAcceptChecker", easyrtcid, callback)
-    document.getElementById('acceptCallBox').style.display = "block";
-    if( easyrtc.getConnectionCount() > 0 ) {
-        document.getElementById('acceptCallLabel').textContent = "Drop current call and accept new from " + easyrtcid + " ?";
-    }
-    else {
-        document.getElementById('acceptCallLabel').textContent = "Accept incoming call from " + easyrtcid + " ?";
-    }
-    var acceptTheCall = function(wasAccepted) {
-        console.log("setAcceptChecker", easyrtcid, callback)
-    
-        document.getElementById('acceptCallBox').style.display = "none";
-        if( wasAccepted && easyrtc.getConnectionCount() > 0 ) {
-            easyrtc.hangupAll();
-        }
-        callback(wasAccepted);
-    };
-    document.getElementById("callAcceptButton").onclick = function() {
-        acceptTheCall(true);
-    };
-    document.getElementById("callRejectButton").onclick =function() {
-        acceptTheCall(false);
-    };
+    console.log("call accepted from ", easyrtcid);
+    callback(true);
 } );
