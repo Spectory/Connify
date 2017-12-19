@@ -1,0 +1,36 @@
+Tutorial: Realtime (RT) Audio on Linux: The Basics (for Laymen)
+1. sudo gedit /etc/security/limits.conf
+2. #yariv code for realtimeaudio
+   yariv 	         -       rtprio          99 
+   #yariv            -       memlock         unlimited
+   yariv            -       nice            30
+https://www.youtube.com/watch?v=w2gPqH6kNJU
+
+
+
+
+jack audio 
+https://www.youtube.com/watch?v=fMz6fDGBnA4
+before using QjackCtl: 
+ 1.jack_control  start
+
+
+for window 
+reWire
+
+BEST RESOURCE: https://askubuntu.com/questions/895216/how-to-route-pulse-audio-device-into-alsa-loopback-virtual-microphone
+linux create virtual device: 
+ 1. sudo modprobe snd-aloop
+ 2. pacmd load-module module-alsa-sink device=hw:2,1 (this add output that plays to input)
+ 5. pacmd set-default-sink alsa_output.hw_2_1
+
+view all devices
+ 1. aplay -l
+
+
+to use pacmd 
+we need:
+1.
+ Note: Changing the output sink through the command line interface can only take effect if stream target device reading is disabled. 		This can be done by editing the corresponing line in /etc/pulse/default.pa to:
+
+load-module module-stream-restore restore_device=false
