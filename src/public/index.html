@@ -71,10 +71,20 @@
         <strong>Connected users:</strong>
         <div id="otherClients"></div>
     </div>
-
+    <div id="videos">
+        <video id="callerAudio"></video>
+        <div id="acceptCallBox">
+            <div id="acceptCallLabel"></div>
+            <button id="callAcceptButton">Accept</button>
+            <button id="callRejectButton">Reject</button>
+        </div>
+    </div>
 </div>
 <script>
-    window.connect()
+    setTimeout(function(){
+        window.connect()
+    },2000)
+
 </script>
 </body>
 </html>
