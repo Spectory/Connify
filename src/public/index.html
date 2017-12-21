@@ -64,14 +64,14 @@
 </div>
 <div id="demoContainer">
     <div id="connectControls">
-        <button id="connectButton" onclick="connect()">Connect</button>
-        <button id="hangupButton"   onclick="hangup()">Hangup</button>
+        <button id="connectButton" onmousedown="connect()">Connect</button>
+        <button id="hangupButton"   onmousedown="hangup()">Hangup</button>
         <div id="iam">Not yet connected...</div>
         <br/>
         <strong>Connected users:</strong>
         <div id="otherClients"></div>
     </div>
-    <div id="videos">
+    <div id="videos" style="visibility: hidden">
         <video id="callerAudio"></video>
         <div id="acceptCallBox">
             <div id="acceptCallLabel"></div>

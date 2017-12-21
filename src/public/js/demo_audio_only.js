@@ -86,7 +86,7 @@ function convertListToButtons (roomName, occupants, isPrimary) {
     var otherClientDiv = document.getElementById('otherClients');
     for(var easyrtcid in occupants) {
         var button = document.createElement('button');
-        button.onclick = function(easyrtcid) {
+        button.onmousedown = function(easyrtcid) {
             return function() {
                 performCall(easyrtcid);
             };
