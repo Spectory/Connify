@@ -84,6 +84,7 @@ function convertListToButtons (roomName, occupants, isPrimary) {
     console.log("convertListToButtons", roomName, occupants, isPrimary);
     clearConnectList();
     var otherClientDiv = document.getElementById('otherClients');
+    console.log("occupants",occupants)
     for(var easyrtcid in occupants) {
         var button = document.createElement('button');
         button.onmousedown = function(easyrtcid) {
