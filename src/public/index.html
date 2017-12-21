@@ -2,53 +2,60 @@
 <html>
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <!--skip-->
-  <title>EasyRTC Demo: Audio Only</title>
-  <link rel="stylesheet" href="css/demo.css">
-  <script src="lib/socket.io.js"></script>
-  <script type="text/javascript" src="/lib/easyrtc.js"></script>
-  <script type="text/javascript" src="js/demo_audio_only.js"></script>
-  <!-- <script src="js/main.js"></script> -->
-  <style>
-    .main_conn{
-      background-image: url("Images/mock.png");
-      position: fixed;
-      top: 0px;
-      right: 0px;
-      bottom: 0px;
-      left: 0px;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center -109px;
-    }
-    #iam {
-      background: none;
-      color: white;
-      font-size: 30px;
-      position: absolute;
-      bottom: 10px;
-      left: 23px;
-    }
-   #otherClients{}
-  </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!--skip-->
+    <title>EasyRTC Demo: Audio Only</title>
+
+    <script src="lib/socket.io.js"></script>
+    <script type="text/javascript" src="/lib/easyrtc.js"></script>
+    <script type="text/javascript" src="js/demo_audio_only.js"></script>
+    <!-- <script src="js/main.js"></script> -->
+    <style>
+        .main_conn {
+            background-image: url("Images/mock.png");
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center -109px;
+        }
+
+        #iam {
+            background: none;
+            color: white;
+            font-size: 20px;
+
+        }
+
+        #otherClients {
+        }
+    </style>
 </head>
 
 <body>
-<div class="main_conn">
+<!--<div class="main_conn">-->
 
-    <div class="con_mic">
-        <div id="iam">Not yet connected...</div>
+<!--<div class="con_mic">-->
+<!--<div id="iam">Not yet connected...</div>-->
 
-    </div>
-</div>
-<div id="container" style="display: none">
-    <div id="main">
+<!--</div>-->
+<!--</div>-->
+<div id="container" class="main_conn">
+    <div id="main" style="
+    background-color: #0000007d;
+    width: 165px;
+    position: absolute;
+    bottom: 0;
+    color:white;
+">
         <div id="demoContainer">
             <div id="connectControls">
                 <button id="connectButton" onclick="connect()">Connect</button>
                 <button id="hangupButton" disabled="disabled" onclick="hangup()">Hangup</button>
-                <!--<div id="iam">Not yet connected...</div>-->
+                <div id="iam">Not yet connected...</div>
                 <br/>
                 <strong>Connected users:</strong>
                 <div id="otherClients"></div>
