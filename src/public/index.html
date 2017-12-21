@@ -2,22 +2,20 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <!--skip-->
     <title>EasyRTC Demo: Audio Only</title>
-
     <script src="lib/socket.io.js"></script>
     <script type="text/javascript" src="/lib/easyrtc.js"></script>
     <script type="text/javascript" src="js/demo_audio_only.js"></script>
     <!-- <script src="js/main.js"></script> -->
     <style>
+        body{background-color: black}
         .main_conn {
             background-image: url("Images/mock.png");
-            position: fixed;
-            top: 0px;
-            right: 0px;
-            bottom: 0px;
-            left: 0px;
+            width:100vw;
+            height: 100vh;
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center -109px;
@@ -29,8 +27,25 @@
             font-size: 20px;
 
         }
-
-        #otherClients {
+        button {
+            background: #42cdbf;
+            height: 50px;
+            width: 207px;
+            border-radius: 44px;
+            font-size: 23px;
+            display: block;
+            outline: none;
+            border: 0px;
+            background-image: none;
+            margin: 0 auto;
+            margin-bottom: 18px;
+        }
+        #demoContainer {
+            background: black;
+            color: white;
+            height: 314px;
+            padding: 89px;
+            padding-bottom: 200px;
         }
     </style>
 </head>
@@ -44,30 +59,23 @@
 <!--</div>-->
 <!--</div>-->
 <div id="container" class="main_conn">
-    <div id="main" style="
-    background-color: #0000007d;
-    width: 165px;
-    position: absolute;
-    bottom: 0;
-    color:white;
-">
-        <div id="demoContainer">
-            <div id="connectControls">
-                <button id="connectButton" onclick="connect()">Connect</button>
-                <button id="hangupButton" disabled="disabled" onclick="hangup()">Hangup</button>
-                <div id="iam">Not yet connected...</div>
-                <br/>
-                <strong>Connected users:</strong>
-                <div id="otherClients"></div>
-            </div>
-            <div id="videos">
-                <video id="callerAudio"></video>
-                <div id="acceptCallBox">
-                    <div id="acceptCallLabel"></div>
-                    <button id="callAcceptButton">Accept</button>
-                    <button id="callRejectButton">Reject</button>
-                </div>
-            </div>
+
+</div>
+<div id="demoContainer">
+    <div id="connectControls">
+        <button id="connectButton" onclick="connect()">Connect</button>
+        <button id="hangupButton" disabled="disabled" onclick="hangup()">Hangup</button>
+        <div id="iam">Not yet connected...</div>
+        <br/>
+        <strong>Connected users:</strong>
+        <div id="otherClients"></div>
+    </div>
+    <div id="videos">
+        <video id="callerAudio"></video>
+        <div id="acceptCallBox">
+            <div id="acceptCallLabel"></div>
+            <button id="callAcceptButton">Accept</button>
+            <button id="callRejectButton">Reject</button>
         </div>
     </div>
 </div>
