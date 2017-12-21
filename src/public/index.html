@@ -13,7 +13,7 @@
   <style>
     .main_conn{
       background-image: url("Images/mock.png");
-      position: ABSOLUTE;
+      position: fixed;
       top: 0px;
       right: 0px;
       bottom: 0px;
@@ -35,37 +35,37 @@
 </head>
 
 <body>
- <div class="main_conn">
+<div class="main_conn">
 
-   <div class="con_mic">
-     <div id="iam">Not yet connected...</div>
+    <div class="con_mic">
+        <div id="iam">Not yet connected...</div>
 
-   </div>
- </div>
-  <div id="container" style="display: none">
-    <div id="main">
-      <div id="demoContainer">
-        <div id="connectControls">
-          <button id="connectButton" onclick="connect()">Connect</button>
-          <button id="hangupButton" disabled="disabled" onclick="hangup()">Hangup</button>
-          <!--<div id="iam">Not yet connected...</div>-->
-          <br />
-          <strong>Connected users:</strong>
-          <div id="otherClients"></div>
-        </div>
-        <div id="videos">
-          <video id="callerAudio"></video>
-          <div id="acceptCallBox">
-            <div id="acceptCallLabel"></div>
-            <button id="callAcceptButton">Accept</button>
-            <button id="callRejectButton">Reject</button>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-  <script>
-      window.connect()
-  </script>
+</div>
+<div id="container" style="display: none">
+    <div id="main">
+        <div id="demoContainer">
+            <div id="connectControls">
+                <button id="connectButton" onclick="connect()">Connect</button>
+                <button id="hangupButton" disabled="disabled" onclick="hangup()">Hangup</button>
+                <!--<div id="iam">Not yet connected...</div>-->
+                <br/>
+                <strong>Connected users:</strong>
+                <div id="otherClients"></div>
+            </div>
+            <div id="videos">
+                <video id="callerAudio"></video>
+                <div id="acceptCallBox">
+                    <div id="acceptCallLabel"></div>
+                    <button id="callAcceptButton">Accept</button>
+                    <button id="callRejectButton">Reject</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    window.connect()
+</script>
 </body>
 </html>

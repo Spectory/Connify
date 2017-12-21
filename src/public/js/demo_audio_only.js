@@ -127,7 +127,7 @@ function loginSuccess(easyrtcid) {
     // enable("disconnectButton");
     enable('otherClients');
     selfEasyrtcid = easyrtcid;
-    document.getElementById("Connected as").innerHTML = "I am " + easyrtcid;
+    document.getElementById("iam").innerHTML = "Connected as " + easyrtcid;
 }
 
 
