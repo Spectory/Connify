@@ -98,7 +98,7 @@ function convertListToButtons(roomName, occupants, isPrimary) {
         }(easyrtcid);
 
         var label = document.createElement('text');
-        if (easyrtc.idToName(easyrtcid) !== "admin") {
+        if (easyrtc.idToName(easyrtcid) !== "#admin") {
             return
         }
         // label.innerHTML = easyrtc.idToName(easyrtcid);
