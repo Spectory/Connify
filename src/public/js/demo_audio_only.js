@@ -32,28 +32,28 @@ function disable(domId) {
 
 
 function enable(domId) {
-    console.log("enable. domId", domId)    
+    console.log("enable. domId", domId)
     document.getElementById(domId).disabled = "";
 }
 
 
 function connect() {
-    console.log("connect",Date.now());
+    console.log("connect", Date.now());
     console.log("Initializing.");
     easyrtc.enableVideo(false);
     easyrtc.enableVideoReceive(false);
     easyrtc.setRoomOccupantListener(convertListToButtons);
 
-    if(document.location.hash === "#admin"){
-        easyrtc.setUsername("admin");
-    }
+
+    easyrtc.setUsername(document.location.hash || "user");
+
     easyrtc.joinRoom("Lobby", {}, console.log, console.error)
     easyrtc.initMediaSource(
-        function(){        // success callback
+        function () {        // success callback
             console.log("easyrtc.initMediaSource success");
             easyrtc.connect("easyrtc.audioOnly", loginSuccess, loginFailure);
         },
-        function(errorCode, errmesg){
+        function (errorCode, errmesg) {
             console.log("easyrtc.initMediaSource error", errorCode, errmesg);
             easyrtc.showError(errorCode, errmesg);
         }  // failure callback
@@ -75,7 +75,7 @@ function hangup() {
 
 
 function clearConnectList() {
-    console.log("clearConnectLis");    
+    console.log("clearConnectLis");
     otherClientDiv = document.getElementById('otherClients');
     while (otherClientDiv.hasChildNodes()) {
         otherClientDiv.removeChild(otherClientDiv.lastChild);
@@ -84,21 +84,21 @@ function clearConnectList() {
 }
 
 
-function convertListToButtons (roomName, occupants, isPrimary) {
+function convertListToButtons(roomName, occupants, isPrimary) {
     console.log("convertListToButtons", roomName, occupants, isPrimary);
     clearConnectList();
     var otherClientDiv = document.getElementById('otherClients');
-    console.log("occupants",occupants)
-    for(var easyrtcid in occupants) {
+    console.log("occupants", occupants)
+    for (var easyrtcid in occupants) {
         var button = document.createElement('button');
-        button.onmousedown = function(easyrtcid) {
-            return function() {
+        button.onmousedown = function (easyrtcid) {
+            return function () {
                 performCall(easyrtcid);
             };
         }(easyrtcid);
 
         var label = document.createElement('text');
-        if(easyrtc.idToName(easyrtcid) !== "admin"){
+        if (easyrtc.idToName(easyrtcid) !== "admin") {
             return
         }
         // label.innerHTML = easyrtc.idToName(easyrtcid);
@@ -112,18 +112,18 @@ function convertListToButtons (roomName, occupants, isPrimary) {
 function performCall(otherEasyrtcid) {
     console.log("performCall", otherEasyrtcid);
     // easyrtc.hangupAll();
-    var acceptedCB = function(accepted, caller) {
+    var acceptedCB = function (accepted, caller) {
         console.log("acceptedCB", accepted, caller);
-    
-        if( !accepted ) {
+
+        if (!accepted) {
             easyrtc.showError("CALL-REJECTED", "Sorry, your call to " + easyrtc.idToName(caller) + " was rejected");
             enable('otherClients');
         }
     };
-    var successCB = function() {
+    var successCB = function () {
         enable('hangupButton');
     };
-    var failureCB = function() {
+    var failureCB = function () {
         enable('otherClients');
     };
     easyrtc.call(otherEasyrtcid, successCB, failureCB, acceptedCB);
@@ -136,7 +136,7 @@ function loginSuccess(easyrtcid) {
     // enable("disconnectButton");
     enable('otherClients');
     selfEasyrtcid = easyrtcid;
-    document.getElementById("iam").innerHTML = "Connected as " + easyrtcid;
+    document.getElementById("iam").innerHTML = "Connected as " + easyrtc.idToName(easyrtcid);
 }
 
 
@@ -157,22 +157,22 @@ function disconnect() {
 }
 
 
-easyrtc.setStreamAcceptor( function(easyrtcid, stream) {
+easyrtc.setStreamAcceptor(function (easyrtcid, stream) {
     console.log("setStreamAcceptor", easyrtcid, stream)
     var audio = document.getElementById('callerAudio');
-    easyrtc.setVideoObjectSrc(audio,stream);
+    easyrtc.setVideoObjectSrc(audio, stream);
     enable("hangupButton");
 });
 
 
-easyrtc.setOnStreamClosed( function (easyrtcid) {
+easyrtc.setOnStreamClosed(function (easyrtcid) {
     console.log("setOnStreamClosed", easyrtcid)
     easyrtc.setVideoObjectSrc(document.getElementById('callerAudio'), "");
     disable("hangupButton");
 });
 
 
-easyrtc.setAcceptChecker(function(easyrtcid, callback) {
+easyrtc.setAcceptChecker(function (easyrtcid, callback) {
     console.log("call accepted from ", easyrtcid);
     callback(true);
-} );
+});
