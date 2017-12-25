@@ -43,6 +43,10 @@ function connect() {
     easyrtc.enableVideo(false);
     easyrtc.enableVideoReceive(false);
     easyrtc.setRoomOccupantListener(convertListToButtons);
+
+    if(document.location.hash === "#admin"){
+        easyrtc.setUsername("admin");
+    }
     easyrtc.joinRoom("Lobby", {}, console.log, console.error)
     easyrtc.initMediaSource(
         function(){        // success callback
@@ -94,7 +98,11 @@ function convertListToButtons (roomName, occupants, isPrimary) {
         }(easyrtcid);
 
         var label = document.createElement('text');
-        label.innerHTML = easyrtc.idToName(easyrtcid);
+        if(easyrtc.idToName(easyrtcid) !== "admin"){
+            return
+        }
+        // label.innerHTML = easyrtc.idToName(easyrtcid);
+        label.innerHTML = "Start Speaking..."
         button.appendChild(label);
         otherClientDiv.appendChild(button);
     }
