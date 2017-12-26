@@ -115,11 +115,12 @@ function convertListToButtons(roomName, occupants, isPrimary) {
         var label = document.createElement('text');
         if (easyrtc.idToName(easyrtcid) !== "#admin") {
             label.innerHTML = easyrtc.idToName(easyrtcid);
-            adminRtcid = easyrtcid;
+
             div.appendChild(label);
             otherClientDiv.appendChild(div);
 
         }else{
+            adminRtcid = easyrtcid;
             document.getElementById("sratInfo").innerHTML = "Start Speaking...";
             // // label.innerHTML = easyrtc.idToName(easyrtcid);
             // label.innerHTML = "Start Speaking..."
