@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="349967e6-aedf-466d-ad8e-086ae3ea0389" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/public/js/demo_audio_only.js" afterPath="$PROJECT_DIR$/src/public/js/demo_audio_only.js" />
-      <change beforePath="$PROJECT_DIR$/tscommand-5573658f.tmp.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/public/index.html" afterPath="$PROJECT_DIR$/src/public/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,7 +24,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="demo_audio_only.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="demo_audio_only.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/public/js/demo_audio_only.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="329">
@@ -57,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="93" column="6" lean-forward="false" selection-start-line="93" selection-start-column="6" selection-end-line="93" selection-end-column="6" />
+            <state relative-caret-position="361">
+              <caret line="97" column="5" lean-forward="false" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -71,7 +70,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>iam</find>
       <find>Connected as</find>
       <find>sole.log(&quot;co</find>
       <find>demo_multiparty</find>
@@ -101,6 +99,7 @@
       <find>hash</find>
       <find>selfEasyrtcid</find>
       <find>admin</find>
+      <find>conne</find>
     </findStrings>
     <replaceStrings>
       <replace>onmousedown</replace>
@@ -113,8 +112,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/public/index.html" />
         <option value="$PROJECT_DIR$/src/public/js/demo_audio_only.js" />
+        <option value="$PROJECT_DIR$/src/public/index.html" />
       </list>
     </option>
   </component>
@@ -219,12 +218,12 @@
       <workItem from="1514213322825" duration="3831000" />
       <workItem from="1514272178577" duration="2449000" />
       <workItem from="1514275785196" duration="3448000" />
-      <workItem from="1514280418224" duration="542000" />
+      <workItem from="1514280418224" duration="798000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18952000" />
+    <option name="totallyTimeSpent" value="19208000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="3904" y="52" width="1217" height="1029" extended-state="6" />
@@ -617,14 +616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="93" column="6" lean-forward="false" selection-start-line="93" selection-start-column="6" selection-end-line="93" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/easyrtc/api/easyrtc_int.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
@@ -640,6 +631,14 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="97" column="5" lean-forward="false" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
