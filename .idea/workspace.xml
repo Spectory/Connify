@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="349967e6-aedf-466d-ad8e-086ae3ea0389" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/public/js/demo_audio_only.js" afterPath="$PROJECT_DIR$/src/public/js/demo_audio_only.js" />
+      <change beforePath="$PROJECT_DIR$/src/public/index.html" afterPath="$PROJECT_DIR$/src/public/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,11 +23,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="demo_audio_only.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="demo_audio_only.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/public/js/demo_audio_only.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="183" column="13" lean-forward="false" selection-start-line="183" selection-start-column="13" selection-end-line="183" selection-end-column="13" />
+            <state relative-caret-position="0">
+              <caret line="24" column="2" lean-forward="true" selection-start-line="24" selection-start-column="2" selection-end-line="183" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -53,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" column="26" lean-forward="false" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+            <state relative-caret-position="127">
+              <caret line="75" column="1" lean-forward="false" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -91,6 +91,8 @@
       <find>convertListToButtons</find>
       <find>convertListToButto</find>
       <find>admin</find>
+      <find>hang</find>
+      <find>demo</find>
     </findStrings>
     <replaceStrings>
       <replace>onmousedown</replace>
@@ -103,8 +105,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/public/index.html" />
         <option value="$PROJECT_DIR$/src/public/js/demo_audio_only.js" />
+        <option value="$PROJECT_DIR$/src/public/index.html" />
       </list>
     </option>
   </component>
@@ -208,12 +210,12 @@
       <workItem from="1513870703647" duration="8000" />
       <workItem from="1514213322825" duration="3831000" />
       <workItem from="1514272178577" duration="2449000" />
-      <workItem from="1514275785196" duration="2415000" />
+      <workItem from="1514275785196" duration="2694000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17377000" />
+    <option name="totallyTimeSpent" value="17656000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="8" width="1857" height="1085" extended-state="6" />
@@ -594,6 +596,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/public/js/demo_audio_only.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="24" column="2" lean-forward="true" selection-start-line="24" selection-start-column="2" selection-end-line="183" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -604,16 +614,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="26" lean-forward="false" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/public/js/demo_audio_only.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="183" column="13" lean-forward="false" selection-start-line="183" selection-start-column="13" selection-end-line="183" selection-end-column="13" />
+        <state relative-caret-position="127">
+          <caret line="75" column="1" lean-forward="false" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
           <folding />
         </state>
       </provider>
