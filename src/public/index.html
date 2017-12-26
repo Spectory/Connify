@@ -2,20 +2,28 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, max-scale="1" initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, max-scale=" 1
+    " initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <!--skip-->
     <title>EasyRTC Demo: Audio Only</title>
     <script src="lib/socket.io.js"></script>
     <script type="text/javascript" src="/lib/easyrtc.js"></script>
     <script type="text/javascript" src="js/demo_audio_only.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
     <!-- <script src="js/main.js"></script> -->
     <style>
-        body{background-color: black}
+        body {
+            background-color: black
+        }
+        body, * {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: white;
+        }
         .main_conn {
             background-image: url("Images/mock.png");
-            width:100vw;
-            min-width:100vw;
+            width: 100vw;
+            min-width: 100vw;
             height: 100vh;
             background-repeat: no-repeat;
             background-size: contain;
@@ -28,6 +36,7 @@
             font-size: 20px;
 
         }
+
         button {
             background: #42cdbf;
             height: 50px;
@@ -41,26 +50,65 @@
             margin: 0 auto;
             margin-bottom: 18px;
         }
-        button:focus{
+
+        button:focus {
             background: #35a093;
         }
+
         #demoContainer {
             background: black;
             color: white;
             height: 314px;
-            padding: 89px;
             padding-bottom: 200px;
         }
-        #connectButton{
+
+        #connectButton {
             visibility: hidden;
         }
+
         div#easyrtcErrorDialog {
-            background: yellow;
+            background: #383838;
+            margin-top: 80px;
+            display:none !important;
         }
-        button.easyrtcErrorDialog_okayButton{
+
+        button.easyrtcErrorDialog_okayButton {
             height: 40px;
             margin-bottom: 30px;
             background: wheat;
+        }
+
+        img#logo {
+            width: 180px;
+            margin: 0 auto;
+            display: block;
+            margin-top: 99px;
+        }
+
+        #imgMic {
+            display: block;
+            width: 231px;
+            margin: 0 auto;
+            margin-top: 46px;
+            height: 231px;
+            position: relative;
+        }
+
+        #micWork {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border: 20px solid greenyellow;
+            border-radius: 50%;
+
+        }
+        #sratInfo,#offline {
+            font-size: 20px;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -75,9 +123,22 @@
 <!--</div>-->
 
 <div id="demoContainer">
+
+    <img id="logo" src="Images/Connify.png" alt="">
+
+
     <div id="connectControls">
+        <div id="imgMic">
+            <img src="Images/mic.png" alt="" onmousedown="callAmin()" style="height: 100%">
+            <div id="micWork" style=" display: none;"></div>
+
+        </div>
+        <div id="sratInfo" >
+
+        </div>
+
         <button id="connectButton" onmousedown="connect()">Connect</button>
-        <button id="hangupButton"   onmousedown="hangup()">Hangup</button>
+        <button id="hangupButton" onmousedown="hangup()">Hangup</button>
         <div id="iam">Not yet connected...</div>
         <br/>
         <!--<strong>Connected users:</strong>-->
@@ -93,7 +154,7 @@
     </div>
 </div>
 <script>
-    setTimeout(function(){
+    setTimeout(function () {
         window.connect()
     })
 

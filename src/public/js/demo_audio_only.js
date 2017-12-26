@@ -25,14 +25,15 @@
 //
 var selfEasyrtcid = "";
 easyrtc.setUsername(document.location.hash || "user-"+Date.now());
-function disable(domId) {
+function disable(domId,to_admin) {
+    document.getElementById("micWork").style.display = "none";
     console.log("disable. domId", domId)
     document.getElementById(domId).disabled = "disabled";
 }
 
 
-function enable(domId) {
-    console.log("enable. domId", domId)
+function enable(domId,to_admin) {
+    console.log("enable. domId", domId);
     document.getElementById(domId).disabled = "";
 }
 
@@ -40,6 +41,7 @@ function enable(domId) {
 function connect() {
     console.log("connect", Date.now());
     console.log("Initializing.");
+    hangup();
     easyrtc.enableVideo(false);
     easyrtc.enableVideoReceive(false);
     easyrtc.setRoomOccupantListener(convertListToButtons);
@@ -72,6 +74,7 @@ function hangup() {
     console.log("hangup");
     easyrtc.hangupAll();
     disable('hangupButton');
+    document.getElementById("micWork").style.display = "none";
 }
 
 
@@ -89,9 +92,13 @@ function muteIfAdmin (){
         easyrtc.enableMicrophone(true)
     }
 }
-
+var adminRtcid ='';
+var callAmin = function(){
+    performCall(adminRtcid,true);
+}
 function convertListToButtons(roomName, occupants, isPrimary) {
     muteIfAdmin ();
+    document.getElementById("sratInfo").innerHTML = "You are offline...";
     console.log("convertListToButtons", roomName, occupants, isPrimary);
     clearConnectList();
     var otherClientDiv = document.getElementById('otherClients');
@@ -108,22 +115,25 @@ function convertListToButtons(roomName, occupants, isPrimary) {
         var label = document.createElement('text');
         if (easyrtc.idToName(easyrtcid) !== "#admin") {
             label.innerHTML = easyrtc.idToName(easyrtcid);
+            adminRtcid = easyrtcid;
             div.appendChild(label);
             otherClientDiv.appendChild(div);
 
         }else{
-            // label.innerHTML = easyrtc.idToName(easyrtcid);
-            label.innerHTML = "Start Speaking..."
-            button.appendChild(label);
-            otherClientDiv.appendChild(button);
+            document.getElementById("sratInfo").innerHTML = "Start Speaking...";
+            // // label.innerHTML = easyrtc.idToName(easyrtcid);
+            // label.innerHTML = "Start Speaking..."
+            // button.appendChild(label);
+            // otherClientDiv.appendChild(button);
         }
 
     }
 }
 
 
-function performCall(otherEasyrtcid) {
+function performCall(otherEasyrtcid,to_admin) {
     console.log("performCall", otherEasyrtcid);
+    document.getElementById("micWork").style.display = "block";
     // easyrtc.hangupAll();
     var acceptedCB = function (accepted, caller) {
         console.log("acceptedCB", accepted, caller);
@@ -134,7 +144,8 @@ function performCall(otherEasyrtcid) {
         }
     };
     var successCB = function () {
-        enable('hangupButton');
+
+        enable('hangupButton',to_admin);
     };
     var failureCB = function () {
         enable('otherClients');
@@ -146,7 +157,7 @@ function performCall(otherEasyrtcid) {
 function loginSuccess(easyrtcid) {
     muteIfAdmin()
     console.log("loginSuccess", easyrtcid)
-    disable("connectButton");
+    disable("connectButton",true);
     // enable("disconnectButton");
     enable('otherClients');
     selfEasyrtcid = easyrtcid;
