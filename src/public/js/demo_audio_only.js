@@ -24,7 +24,7 @@
 //POSSIBILITY OF SUCH DAMAGE.
 //
 var selfEasyrtcid = "";
-
+easyrtc.setUsername(document.location.hash || "user-"+Date.now());
 function disable(domId) {
     console.log("disable. domId", domId)
     document.getElementById(domId).disabled = "disabled";
@@ -45,7 +45,7 @@ function connect() {
     easyrtc.setRoomOccupantListener(convertListToButtons);
 
 
-    easyrtc.setUsername(document.location.hash || "user");
+
 
     easyrtc.joinRoom("Lobby", {}, console.log, console.error)
     easyrtc.initMediaSource(
@@ -99,6 +99,9 @@ function convertListToButtons(roomName, occupants, isPrimary) {
 
         var label = document.createElement('text');
         if (easyrtc.idToName(easyrtcid) !== "#admin") {
+            label.innerHTML = easyrtc.idToName(easyrtcid);
+            button.appendChild(label);
+            otherClientDiv.appendChild(button);
             return
         }
         // label.innerHTML = easyrtc.idToName(easyrtcid);
@@ -137,6 +140,7 @@ function loginSuccess(easyrtcid) {
     enable('otherClients');
     selfEasyrtcid = easyrtcid;
     document.getElementById("iam").innerHTML = "Connected as " + easyrtc.idToName(easyrtcid);
+
 }
 
 
@@ -174,5 +178,6 @@ easyrtc.setOnStreamClosed(function (easyrtcid) {
 
 easyrtc.setAcceptChecker(function (easyrtcid, callback) {
     console.log("call accepted from ", easyrtcid);
+
     callback(true);
 });
