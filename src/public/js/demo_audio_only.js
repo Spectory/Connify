@@ -91,6 +91,7 @@ function convertListToButtons(roomName, occupants, isPrimary) {
     console.log("occupants", occupants)
     for (var easyrtcid in occupants) {
         var button = document.createElement('button');
+        var div = document.createElement('div');
         button.onmousedown = function (easyrtcid) {
             return function () {
                 performCall(easyrtcid);
@@ -100,8 +101,8 @@ function convertListToButtons(roomName, occupants, isPrimary) {
         var label = document.createElement('text');
         if (easyrtc.idToName(easyrtcid) !== "#admin") {
             label.innerHTML = easyrtc.idToName(easyrtcid);
-            button.appendChild(label);
-            otherClientDiv.appendChild(button);
+            div.appendChild(label);
+            otherClientDiv.appendChild(div);
 
         }else{
             // label.innerHTML = easyrtc.idToName(easyrtcid);
@@ -180,6 +181,6 @@ easyrtc.setOnStreamClosed(function (easyrtcid) {
 
 easyrtc.setAcceptChecker(function (easyrtcid, callback) {
     console.log("call accepted from ", easyrtcid);
-
+    hangup();
     callback(true);
 });
