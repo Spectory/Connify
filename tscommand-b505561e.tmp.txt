@@ -1,1 +1,0 @@
-src/config/router.ts src/controllers/indexController.ts src/server.ts --sourcemap --removeComments --rootDir ./src --target ES5 --outDir ./build
