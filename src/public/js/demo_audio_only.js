@@ -102,12 +102,14 @@ function convertListToButtons(roomName, occupants, isPrimary) {
             label.innerHTML = easyrtc.idToName(easyrtcid);
             button.appendChild(label);
             otherClientDiv.appendChild(button);
-            return
+
+        }else{
+            // label.innerHTML = easyrtc.idToName(easyrtcid);
+            label.innerHTML = "Start Speaking..."
+            button.appendChild(label);
+            otherClientDiv.appendChild(button);
         }
-        // label.innerHTML = easyrtc.idToName(easyrtcid);
-        label.innerHTML = "Start Speaking..."
-        button.appendChild(label);
-        otherClientDiv.appendChild(button);
+
     }
 }
 
