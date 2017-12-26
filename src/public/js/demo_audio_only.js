@@ -58,6 +58,7 @@ function connect() {
             easyrtc.showError(errorCode, errmesg);
         }  // failure callback
         , "Lobby");
+    muteIfAdmin();
 }
 
 
@@ -82,9 +83,15 @@ function clearConnectList() {
     }
 
 }
-
+function muteIfAdmin (){
+    if (easyrtc.idToName(selfEasyrtcid) === "#admin") {
+        console.log("muting admin")
+        easyrtc.enableMicrophone(true)
+    }
+}
 
 function convertListToButtons(roomName, occupants, isPrimary) {
+    muteIfAdmin ();
     console.log("convertListToButtons", roomName, occupants, isPrimary);
     clearConnectList();
     var otherClientDiv = document.getElementById('otherClients');
@@ -137,6 +144,7 @@ function performCall(otherEasyrtcid) {
 
 
 function loginSuccess(easyrtcid) {
+    muteIfAdmin()
     console.log("loginSuccess", easyrtcid)
     disable("connectButton");
     // enable("disconnectButton");
@@ -181,6 +189,7 @@ easyrtc.setOnStreamClosed(function (easyrtcid) {
 
 easyrtc.setAcceptChecker(function (easyrtcid, callback) {
     console.log("call accepted from ", easyrtcid);
+    muteIfAdmin();
     hangup();
     callback(true);
 });
