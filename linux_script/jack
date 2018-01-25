@@ -34,3 +34,7 @@ we need:
  Note: Changing the output sink through the command line interface can only take effect if stream target device reading is disabled. 		This can be done by editing the corresponing line in /etc/pulse/default.pa to:
 
 load-module module-stream-restore restore_device=false
+
+#to make snd-aloop permanet
+sudo gedit /etc/modules
+add line - "snd-aloop"
